@@ -4484,7 +4484,16 @@ function renderEverything(){
 
   $("chatTitle").textContent=
     state.activeChat || "Campus Buddy";
-}
+const now = new Date();
+let hour = now.getHours();
+const ampm = hour >= 12 ? 'PM' : 'AM';
+hour = hour % 12;
+hour = hour ? hour : 12;
+
+let greeting = hour >= 5 && hour < 12 ? "Good Morning" : hour >= 12 && hour < 17 ? "Good Afternoon" : "Good Evening";
+
+document.getElementById("greetingText").textContent = greeting + ' ' + ampm;
+              }
 
 /* ---------------------------------------------------------
    BOOT
